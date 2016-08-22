@@ -1,0 +1,32 @@
+{
+  "name": "paymax",
+  "version": "1.0.1",
+  "description": "paymax-server-sdk-nodejs",
+  "keywords": [
+    "paymax-nodejs",
+    "paymax"
+  ],
+  "author": "liang.wang",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/paymax/paymax-server-sdk-nodejs.git"
+  },
+  "bugs:": "https://github.com/paymax/paymax-server-sdk-nodejs/issues",
+  "engines": {
+    "node": ">= v0.10.0"
+  },
+  "homepage": "https://github.com/paymax/paymax-server-sdk-nodejs#readme",
+  "main": "./index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/paymax/paymax-server-sdk-nodejs/issues"
+  }
+}
