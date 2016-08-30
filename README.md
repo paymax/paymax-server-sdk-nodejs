@@ -13,10 +13,9 @@ nodejs 版本 v0.10.0 及以上
 
 ### 安装
 
-```shell
+```Bash
 npm install paymax
-或者
-下载源码后，在目录下运行 npm install
+
 ```
 ## 初始化配置
 
@@ -26,7 +25,7 @@ var Paymax=require('paymax');
 
 ```
 //Paymax提供给商户的SecretKey，登录网站后查看
-Paymax.conf.setSecretKey('b3fc21858fa5424cafecd338252b155c');
+Paymax.conf.setSecretKey('55970fdbbf10459f966a8e276afa86fa');
 
 //Paymax提供给商户的公钥，登录网站后查看（参考样例，严格按照pem格式保存）
 Paymax.conf.setPaymaxPublicKeyPath('paymax_rsa_public_key.pem');
@@ -45,7 +44,7 @@ Paymax.charge.createCharge(
         order_no: generateRandomAlphaNum(20),
         channel: 'alipay_app',
         client_ip: '127.0.0.1',
-        app: 'app_06m9Q26zL61ee55a',
+        app: 'app_7hqF2S6GYXET457i',
         currency: 'cny',
         extra: {},
         description: 'this is a description',
@@ -81,5 +80,9 @@ Paymax.refund.queryRefund(
         ,getResult
  );
  ```
+### 人脸识别:查询用户识别信息
 
+```javascript
+Paymax.face.queryFaceAuth('123',getResult);
+ ```
 ### 详细信息请参考 [API 文档](https://github.com/paymax/paymax-doc)。

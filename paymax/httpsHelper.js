@@ -35,20 +35,19 @@ var httpsHelper = {
                         var  isVerify = Sign.responseSignVerify(res.headers,revData);
 
                         if(!isVerify){
-                            err= new Error('Invalid Response.[Response Data And Sign Verify Failure.]');
+                            err= new Error('{"failure_code":"SIGN_CHECK_FAILED","failure_msg":"SIGN_CHECK_FAILED"}');
                         }
                         if(VALID_RESPONSE_TTL+res.headers.timestamp<new Date().getTime()){
-                            err=  new Error('Invalid Response.[Response Time Is Invalid.]');
+                            err=  new Error('{"failure_code":"ORDER_TIMEOUT","failure_msg":"ORDER_TIMEOUT"}');
                         }
                         onEnd(err, revData);
                     }else{
-                        err = new Error("systemError:responseCode is:"+res.statusCode);
+                        err=  new Error(revData);
                         onEnd(err, revData);
                     }
-
                 });
         }).on('error', function (e) {
-                onEnd(e, null);
+                onEnd(new Error('{"failure_code":"SYSTEM_ERROR","failure_msg":"SYSTEM_ERROR"}'), null);
             });
 
         if (postData) {
@@ -85,19 +84,19 @@ var httpsHelper = {
                         var  isVerify = Sign.responseSignVerify(res.headers,revData);
 
                         if(!isVerify){
-                            err = new Error('Invalid Response.[Response Data And Sign Verify Failure.]');
+                            err= new Error('{"failure_code":"SIGN_CHECK_FAILED","failure_msg":"SIGN_CHECK_FAILED"}');
                         }
                         if(VALID_RESPONSE_TTL+res.headers.timestamp<new Date().getTime()){
-                            err = new Error('Invalid Response.[Response Time Is Invalid.]');
+                            err=  new Error('{"failure_code":"ORDER_TIMEOUT","failure_msg":"ORDER_TIMEOUT"}');
                         }
                         onEnd(err, revData);
                     }else{
-                        err = new Error("systemError:responseCode is:"+res.statusCode);
+                        err=  new Error(revData);
                         onEnd(err, revData);
                     }
                 });
         }).on('error', function (e) {
-                onEnd(e, null);
+            onEnd(new Error('{"failure_code":"SYSTEM_ERROR","failure_msg":"SYSTEM_ERROR"}'), null);
             });
 
         req.end();

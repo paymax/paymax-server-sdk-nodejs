@@ -1,16 +1,19 @@
 var Paymax=require("paymax");
 
 Paymax.conf.setSecretKey('55970fdbbf10459f966a8e276afa86fa');
-Paymax.conf.setPaymaxPublicKeyPath('./example/paymax_rsa_public_key.pem');
-Paymax.conf.setPrivateKeyPath('./example/rsa_private_key.pem');
+Paymax.conf.setPaymaxPublicKeyPath('paymax_rsa_public_key.pem');
+Paymax.conf.setPrivateKeyPath('rsa_private_key.pem');
 
 getResult = function (e, data) {
     //先判断是否有异常
     if(e!=null){
-        console.log("exception===" + e);
+        var err= JSON.parse(e.message);
+        console.log("exception_code===" +err.failure_code);
+        console.log("exception_message===" +err.failure_msg);
         return;
     }
-    console.log("data===" + data);
+        console.log("data===" + data);
+
 }
 function generateRandomAlphaNum(len) {
         var rdmString = "";
@@ -38,17 +41,19 @@ function generateRandomAlphaNum(len) {
  订单查询
  */
 
-//Paymax.charge.queryCharge('ch_fbe2d2675043004b02303b6a',getResult);
+//Paymax.charge.queryCharge('ch_bd88045a391aade151476221',getResult);
 /**
  退款
  */
 
 /* Paymax.refund.createRefund(
-        'ch_a59123a1538074f3cfa6568b',
+         'ch_25214d51cccb602c1045fafa',
          {
-         'amount':'0.01',
+         'amount':'1',
          'description':'this is a description',
-         'extra':{}
+         'extra':{'extra_key1':'extra_key1',
+                    'extra_key2':'extra_key2'
+                }
          },
          getResult
  );*/
@@ -63,3 +68,7 @@ Paymax.refund.queryRefund(
          }
         ,getResult
  );*/
+/**
+ 人脸识别--查询用户识别信息
+ */
+ //Paymax.face.queryFaceAuth('123',getResult);
