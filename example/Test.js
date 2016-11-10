@@ -23,7 +23,7 @@ function generateRandomAlphaNum(len) {
 /**
  下单
  */
- Paymax.charge.createCharge(
+ /*Paymax.charge.createCharge(
     {
         amount: '0.01',
         subject: 'test_subject_nodejs版本',
@@ -36,7 +36,7 @@ function generateRandomAlphaNum(len) {
         extra: {},
         description: 'this is a description描述',
     }, getResult
-);
+);*/
 /**
  订单查询
  */
@@ -46,8 +46,8 @@ function generateRandomAlphaNum(len) {
  退款
  */
 
-/* Paymax.refund.createRefund(
-         'ch_25214d51cccb602c1045fafa',
+ /*Paymax.refund.createRefund(
+         'ch_638b56095fa7b9cf9b60b9d3',
          {
          'amount':'1',
          'description':'this is a description',
@@ -60,8 +60,7 @@ function generateRandomAlphaNum(len) {
 /**
  退款查询
  */
-/*
-Paymax.refund.queryRefund(
+/*Paymax.refund.queryRefund(
          {
          'chargeNo':'ch_a59123a1538074f3cfa6568b',
          'refundNo':'re_d6586ff6e077b95985344538'
