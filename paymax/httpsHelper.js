@@ -31,7 +31,7 @@ var httpsHelper = {
                 .on('end', function () {
 
                     var err=null;
-                    if(res.statusCode<400){
+                    if(res.statusCode == 200){
                         var  isVerify = Sign.responseSignVerify(res.headers,revData);
 
                         if(!isVerify){
